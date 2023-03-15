@@ -1,6 +1,9 @@
 import streamlit as st
 import base64
 
+#path
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+
 st.set_page_config(
     page_title="CredCare",
     page_icon="🏦",
@@ -20,7 +23,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-add_bg_from_local('log1.png')    
+add_bg_from_local(current_dir/'log1.png')    
 #st.title("Welcome")
 
 st.sidebar.success("Select a page above.")
