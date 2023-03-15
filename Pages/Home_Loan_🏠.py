@@ -11,7 +11,7 @@ warnings.filterwarnings('ignore')
 #app=Flask(__name__)
 #Swagger(app)
 
-pickle_in = open("./Final/models/nb3.pkl","rb")
+pickle_in = open("../Final/models/nb3.pkl","rb")
 classifier=pickle.load(pickle_in)
 
 #@app.route('/')
@@ -47,7 +47,7 @@ LoanAmount,Loan_Amount_Term,Credit_History,Property_Area):
             description: The output values
         
     """
-    test = pd.read_csv("./Final/Data/test.csv")
+    test = pd.read_csv("../Final/Data/test.csv")
     
     Gender=str(Gender)
     Married=str(Married)
@@ -146,7 +146,7 @@ def main():
             
             st.info(random.choice(list))
             st.info(random.choice(list2))
-    df= pd.read_csv('./Final/home_loan_table.csv',index_col=0)
+    df= pd.read_csv('../Final/home_loan_table.csv',index_col=0)
     df = df.drop(df.columns[0],axis=1)
     #st.dataframe(df, 100,1000)
     st.table(df)
