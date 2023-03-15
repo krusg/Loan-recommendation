@@ -20,7 +20,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-add_bg_from_local('C:/Users/krushan/Desktop/rohan/log1.png')    
+add_bg_from_local('../log1.png')    
 #st.title("Welcome")
 
 st.sidebar.success("Select a page above.")

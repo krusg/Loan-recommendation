@@ -13,7 +13,7 @@ warnings.filterwarnings('ignore')
 #app=Flask(__name__)
 #Swagger(app)
 
-pickle_in = open("C:/Users/krushan/Desktop/rohan/Final/models/nb2.pkl","rb")
+pickle_in = open("../Final/models/nb2.pkl","rb")
 classifier=pickle.load(pickle_in)
 
 #@app.route('/')
@@ -50,7 +50,7 @@ CurrentCreditBalance,MaximumOpenCredit,Bankruptcies,TaxLiens):
             description: The output values
         
     """
-    dataframe = pd.read_csv("C:/Users/krushan/Desktop/rohan/Final/Data/CarLoan_Dataset.csv")
+    dataframe = pd.read_csv("../Final/Data/CarLoan_Dataset.csv")
     
     CarLoanAmount=int(CarLoanAmount)
     Term=str(Term)
@@ -169,7 +169,7 @@ def main():
     if st.button("About"):
         st.text("Lets LEarn")
         
-    df= pd.read_csv('C:/Users/krushan/Desktop/rohan/Final/car_loan_table.csv',index_col=0)
+    df= pd.read_csv('../Final/car_loan_table.csv',index_col=0)
     df = df.drop(df.columns[0],axis=1)
     #st.dataframe(df, 100,1000)
     st.table(df)
