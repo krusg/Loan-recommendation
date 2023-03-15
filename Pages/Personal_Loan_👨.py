@@ -11,7 +11,7 @@ warnings.filterwarnings('ignore')
 #app=Flask(__name__)
 #Swagger(app)
 
-pickle_in = open("C:/Users/krushan/Desktop/rohan/Final/models/nb1.pkl","rb")
+pickle_in = open("./Final/models/nb1.pkl","rb")
 classifier=pickle.load(pickle_in)
 print(classifier.feature_names_in_) 
 #@app.route('/')
@@ -220,7 +220,7 @@ approval.<br>
             st.success('Congratulations! You Are Eligible For A Personal Loan')
         else:
             st.success('Sorry! You Are Not Eligible For A Personal Loan')
-    df= pd.read_csv('C:/Users/krushan/Desktop/rohan/Final/personal_loan_table.csv',index_col=0)
+    df= pd.read_csv('./Final/personal_loan_table.csv',index_col=0)
     df = df.drop(df.columns[0],axis=1)
     #st.dataframe(df, 100,1000)
     st.table(df)
