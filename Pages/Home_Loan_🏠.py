@@ -85,7 +85,7 @@ LoanAmount,Loan_Amount_Term,Credit_History,Property_Area):
     test=test.drop("Loan_ID",axis=1)
 
     test = pd.get_dummies(test)
-    print(test.iloc[len(test)-1])
+    #print(test.iloc[len(test)-1])
     prediction=classifier.predict([test.iloc[len(test)-1]])
     #print(prediction)
     #print(test.iloc[367])
@@ -141,11 +141,13 @@ def main():
             st.success('Congratulations! You Are Eligible For A Home Loan')
         else:
             st.error('Sorry! You Are Not Eligible For A Home Loan')
-            list = ['Please Increase Your Credit Score','Please Build A Good Credit History','Please Lower Your Monthly Debt']
-            list2 = ['You Have Too Many Bankruptcies','You Have Too Many TaxLiens','Please Increase Your Annual Income']
-            
-            st.info(random.choice(list))
-            st.info(random.choice(list2))
+            income = int(ApplicantIncome)+int(CoapplicantIncome)
+            # list = ['Please Increase Your Credit Score','Please Build A Good Credit History','Please Lower Your Monthly Debt']
+            # list2 = ['You Have Too Many Bankruptcies','You Have Too Many TaxLiens','Please Increase Your Annual Income']
+            # st.info(random.choice(list))
+            # st.info(random.choice(list2))
+            if (((int(LoanAmount))*0.3)>(int(income))):
+                st.info("Please Increase Your Income As It Is Less Than 30%% Of The Loan Amount")
     df= pd.read_csv('../Final/home_loan_table.csv',index_col=0)
     df = df.drop(df.columns[0],axis=1)
     #st.dataframe(df, 100,1000)
@@ -153,7 +155,7 @@ def main():
         
 
     if st.button("About"):
-        st.text("Lets LEarn")
+        st.text("Hello")
         st.text("Built with Streamlit")
 
 if __name__=='__main__':

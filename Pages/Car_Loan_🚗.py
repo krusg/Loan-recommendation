@@ -96,7 +96,7 @@ CurrentCreditBalance,MaximumOpenCredit,Bankruptcies,TaxLiens):
     target = target.replace('Charged Off', 0)
     
     prediction=classifier.predict([findataframe.iloc[len(findataframe)-1]])
-    print(prediction)
+    
     
     return prediction
 
@@ -160,14 +160,19 @@ def main():
         if result==1:
             st.success('Congratulations! You Are Eligible For A Car Loan')
         else:
-            list = ['Please Increase Your Credit Score','Please Build A Good Credit History','Please Lower Your Monthly Debt']
-            list2 = ['You Have Too Many Bankruptcies','You Have Too Many TaxLiens','Please Increase Your Annual Income']
+            
             st.error('Sorry! You Are Not Eligible For A Car Loan')
-            st.info(random.choice(list))
-            st.info(random.choice(list2))
+            if (((int(CarLoanAmount))*0.3)>(int(AnnualIncome))):
+                st.info("Please Increase Your Income As It Is Less Than 30%% Of The Loan Amount")
+                st.info("Car Loan Amount is Too High")
+            if ( (int(MonthlyDebt))>((int(AnnualIncome))/12) ):
+                st.info("Please Lower Your Debt Your Monthly Debt Is Too High")
+          
+            
+            
             
     if st.button("About"):
-        st.text("Lets LEarn")
+        st.text("Hello")
         
     df= pd.read_csv('../Final/car_loan_table.csv',index_col=0)
     df = df.drop(df.columns[0],axis=1)
